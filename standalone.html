@@ -95,6 +95,14 @@ body:has(a:hover) #cur-ring,body:has(button:hover) #cur-ring{width:56px;height:5
 .stat-n{font-family:var(--fh);font-size:1.9rem;font-weight:700;color:var(--r);line-height:1}
 .stat-l{font-size:.72rem;color:rgba(255,255,255,.55);letter-spacing:2px;text-transform:uppercase;margin-top:3px}
 
+/* IMAGES */
+.hero-bg-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;opacity:.28;z-index:0}
+.club-img{position:relative;overflow:hidden}
+.club-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;transition:transform .6s ease}
+.club-img:hover img{transform:scale(1.04)}
+.gal-item img{width:100%;height:100%;min-height:160px;object-fit:cover;object-position:center;display:block;transition:transform .5s ease}
+.gal-item:hover img{transform:scale(1.06)}
+
 /* LE CLUB */
 #club{background:var(--w)}
 .club-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
@@ -190,6 +198,7 @@ td{padding:18px 20px;font-size:.9rem;color:rgba(255,255,255,.8);vertical-align:m
 .gal-item:hover .gal-ov{background:rgba(204,0,0,.55)}
 .gal-ov i{font-size:2rem;color:var(--w);opacity:0;transform:scale(.7);transition:all var(--tr)}
 .gal-item:hover .gal-ov i{opacity:1;transform:scale(1)}
+.gal-label{position:absolute;bottom:0;left:0;right:0;padding:10px 14px;background:linear-gradient(transparent,rgba(0,0,0,.75));color:rgba(255,255,255,.85);font-family:var(--fh);font-size:.75rem;letter-spacing:2px;text-transform:uppercase;z-index:1;pointer-events:none}
 
 /* CONTACT + MAP */
 #contact{background:var(--gl)}
@@ -337,6 +346,7 @@ footer{background:var(--b);color:var(--w)}
 
 <!-- HERO -->
 <section id="hero">
+  <img class="hero-bg-img" src="assets/images/karate-dojo-tatami.jpg" alt="Dojo Karate Strassen Luxembourg" loading="eager"/>
   <canvas id="cvs"></canvas>
   <div class="hero-cont">
     <p class="hero-badge"><i class="fa-solid fa-star"></i>&nbsp;Club Officiel · Luxembourg&nbsp;<i class="fa-solid fa-star"></i></p>
@@ -363,7 +373,9 @@ footer{background:var(--b);color:var(--w)}
   <div class="ctn">
     <div class="club-grid">
       <div class="club-img-wrap reveal-l">
-        <div class="club-img"><i class="fa-solid fa-hand-fist"></i></div>
+        <div class="club-img">
+          <img src="assets/images/karate-ceinture-noire.jpg" alt="Sensei KSL – ceinture noire Shotokan" loading="lazy"/>
+        </div>
         <div class="img-accent"></div>
         <div class="year-badge"><b>1999</b><small>Fondé en</small></div>
         <svg class="belt-svg" viewBox="0 0 220 40">
@@ -584,13 +596,41 @@ footer{background:var(--b);color:var(--w)}
       <p class="sec-sub" style="color:rgba(255,255,255,.45)">Entraînements, compétitions, passages de grade et moments de vie du club.</p>
     </div>
     <div class="gal-grid">
-      <div class="gal-item tall reveal"><div class="gal-ph" style="background:linear-gradient(135deg,#1a1a1a,#2a1010)"><i class="fa-solid fa-hand-fist"></i><span>Entraînement</span></div><div class="gal-ov"><i class="fa-solid fa-magnifying-glass-plus"></i></div></div>
-      <div class="gal-item wide reveal"><div class="gal-ph" style="background:linear-gradient(135deg,#1e1e1e,#2d1010)"><i class="fa-solid fa-trophy"></i><span>Compétition 2024</span></div><div class="gal-ov"><i class="fa-solid fa-magnifying-glass-plus"></i></div></div>
-      <div class="gal-item reveal"><div class="gal-ph" style="background:linear-gradient(135deg,#1a1a2e,#1e1e1e)"><i class="fa-solid fa-person-walking"></i><span>Kata</span></div><div class="gal-ov"><i class="fa-solid fa-magnifying-glass-plus"></i></div></div>
-      <div class="gal-item reveal"><div class="gal-ph" style="background:linear-gradient(135deg,#1a1a1a,#2a1a1a)"><i class="fa-solid fa-children"></i><span>Cours Enfants</span></div><div class="gal-ov"><i class="fa-solid fa-magnifying-glass-plus"></i></div></div>
-      <div class="gal-item tall reveal"><div class="gal-ph" style="background:linear-gradient(135deg,#1c1010,#1a1a1a)"><i class="fa-solid fa-medal"></i><span>Passage de Grade</span></div><div class="gal-ov"><i class="fa-solid fa-magnifying-glass-plus"></i></div></div>
-      <div class="gal-item reveal"><div class="gal-ph" style="background:linear-gradient(135deg,#101a10,#1a1a1a)"><i class="fa-solid fa-shield-halved"></i><span>Self-Défense</span></div><div class="gal-ov"><i class="fa-solid fa-magnifying-glass-plus"></i></div></div>
-      <div class="gal-item wide reveal"><div class="gal-ph" style="background:linear-gradient(135deg,#14101e,#1e1a10)"><i class="fa-solid fa-users"></i><span>Équipe KSL 2024</span></div><div class="gal-ov"><i class="fa-solid fa-magnifying-glass-plus"></i></div></div>
+      <div class="gal-item tall reveal">
+        <img src="assets/images/karate-entrainement-dojo.jpg" alt="Entraînement au dojo KSL" loading="lazy"/>
+        <div class="gal-ov"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+        <div class="gal-label">Entraînement</div>
+      </div>
+      <div class="gal-item wide reveal">
+        <img src="assets/images/karate-kata-competition.jpg" alt="Compétition Kata 2024" loading="lazy"/>
+        <div class="gal-ov"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+        <div class="gal-label">Compétition 2024</div>
+      </div>
+      <div class="gal-item reveal">
+        <img src="assets/images/karate-kumite-combat.jpg" alt="Kumite – combat contrôlé" loading="lazy"/>
+        <div class="gal-ov"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+        <div class="gal-label">Kumite</div>
+      </div>
+      <div class="gal-item reveal">
+        <img src="assets/images/karate-enfants-cours.jpg" alt="Cours enfants KSL" loading="lazy"/>
+        <div class="gal-ov"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+        <div class="gal-label">Cours Enfants</div>
+      </div>
+      <div class="gal-item tall reveal">
+        <img src="assets/images/karate-ceinture-noire.jpg" alt="Passage de grade – ceinture noire" loading="lazy"/>
+        <div class="gal-ov"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+        <div class="gal-label">Passage de Grade</div>
+      </div>
+      <div class="gal-item reveal">
+        <img src="assets/images/karate-dojo-tatami.jpg" alt="Dojo – tatami KSL" loading="lazy"/>
+        <div class="gal-ov"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+        <div class="gal-label">Le Dojo</div>
+      </div>
+      <div class="gal-item wide reveal">
+        <img src="assets/images/karate-entrainement-dojo.jpg" alt="Équipe KSL 2024" loading="lazy" style="object-position:top"/>
+        <div class="gal-ov"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+        <div class="gal-label">Équipe KSL 2024</div>
+      </div>
     </div>
   </div>
 </section>
